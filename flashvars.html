@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<title>The FlashVar Table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body {
+  margin: 1em;
+  background-color: #fff;
+}
+th {
+  text-align: left;
+  color: #006;
+  border-bottom: 1px solid #ccc;
+}
+tr.odd {
+  background-color: #ddd;
+}
+tr.even {
+  background-color: #fff;
+}
+td {
+  padding: 5px;
+}
+#menu {
+  visibility: hidden;
+}
+#main {
+  margin: 1em;
+}
+</style>
+</head>
+<body>
+<div class="section-1">
+<div class="section-2">
+<div class="section-3">
+<div class="section-4">
+<div class="section-5">
+<div id="node-133" class="section-6">
+<h2>The Dash Player FlashVar Table</h2>
+<p>Below you will find a listing of all available flash variables that the player accepts</p><br/>
+<table>
+ <thead><tr><th>FlashVar</th><th>Type</th><th>Default</th><th>Requirement</th><th>Description</th><th>Example</th> </tr></thead>
+<tbody>
+ <tr class="odd"><td>api</td><td>Number</td><td>3</td><td>Drupal</td><td>Used to specify which Services API you are using.  For Drupal 6 versions 0.9 or less, or Drupal 5 versions 0.91 or less, you should use <strong>api=1</strong></td><td><ul><li>For Services Version < (6x-0.9) or (5x-0.91):  <strong>api=1</strong></li><li>For Services Version > (6x-0.9) or (5x-0.91):  <strong>api=2</strong></li><li>For Services Version > (6x-0.13) or (5x-0.92):  <strong>api=3</strong></li></ul></td> </tr>
+
+ <tr class="even"><td>arg</td><td>String</td><td></td><td>Drupal</td><td>Used as an argument for the view being used as the playlist (see above).  You can use this to create a filter system so that the player will only play certain content based on the argument provided to that view.  If you wish to provide more than one argument, you must follow the word "arg" with the argument number you wish to provide, where 1 is the first argument.  See example for a sample of this functionality.</td><td><ul><li>To only pass one argument - <em>arg=comedy</em></li><li>To pass more than one argument - <em>arg=comedy&arg2=admin</em></li></ul></td> </tr>
+ <tr class="odd"><td>autohide</td><td>Boolean (true|false)</td><td>true</td><td></td><td>A way to disable the auto hide feature where the playlist hides when the player is sized below a certain threshold.</td><td><em>autohide=false</em></td> </tr>
+
+ <tr class="even"><td>autoload</td><td>Boolean (true|false)</td><td>true</td><td></td><td>Allows you to tell the player to automatically load the video or audio track when the teaser or page is refreshed.  If you wish to save bandwidth, or if you wish to only load the video or audio when your user actually clicks play, then you should set this variable to false.</td><td>To only load the video or audio when the user clicks play, you should specify <em>autoload=false</em></td> </tr>
+ <tr class="odd"><td>autonext</td><td>Boolean (true|false)</td><td>true</td><td></td><td>Tells the player to automatically play the next media after the one currently playing finishes.</td><td><em>autonext=false</em></td> </tr>
+
+ <tr class="even"><td>autostart</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Used to indicate to the player to automatically play the media on load or not.</td><td><em>autostart=true</em></td> </tr>
+ <tr class="odd"><td>bufferlength</td><td>Number</td><td>5</td><td></td><td>Used to change the amount of time to buffer the media track before playing.</td><td>To have a 10 second buffer, you would provide <em>bufferlength=10</em></td> </tr>
+
+ <tr class="even"><td>cache</td><td>Boolean (true|false)</td><td>true</td><td></td><td>Tell the player if it should play (or show) a cached version of the media or not.</td><td></td> </tr>
+ <tr class="odd"><td>color</td><td>Number (RGB)</td><td></td><td></td><td>Used in conjunction with the "theme" parameter to specify the colors to use in the theme.  This allows for dynamic themeing of the Dash Player.</td><td><em>color1=1234567&color2=246813</em></td> </tr>
+ <tr class="even"><td>config</td><td>String</td><td>dashconfig</td><td></td><td>Allows you to switch player configuration XML files located in the "config" directory.</td><td>To use the videos.xml configuration file located in the "config" directory - <em>config=videos</em></td> </tr>
+
+ <tr class="odd"><td>connect</td><td>String</td><td></td><td></td><td>Allows you to link an <strong>id</strong> for any other player on the page to allow for Remote Playlist Support</td><td>If you wish to link up the the playlist that has an <strong>id</strong> of <strong>dashplaylist</strong>, you would just provide <strong>connect=dashplaylist</strong></td> </tr>
+ <tr class="even"><td>controlbaronly</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Allows you to only show the Control Bar.  This is useful when using the Remote Control feature shown at http://www.tmtdigital.com/remotecontrol</td><td></td> </tr>
+
+ <tr class="odd"><td>controlbarskin</td><td>String</td><td>controlbar</td><td></td><td>Allows you to change the skin your control bar is using when you use the <strong>controlbaronly=true</strong> parameter.</td><td></td> </tr>
+ <tr class="even"><td>delay</td><td>Number</td><td>0</td><td></td><td>Used to add a delay before the media plays.  You can use this variable if you wish to show the intro image a couple of seconds before auto-playing a video track.</td><td></td> </tr>
+
+ <tr class="odd"><td>disableembed</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Allows you to disable the embed feature on the player.</td><td><em>disableembed=true</em></td> </tr>
+ <tr class="even"><td>disablemenu</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Will disable the menu of the player.  It will hide the menu section along with the menu button in the control bar.</td><td><em>disablemenu=true</em></td> </tr>
+ <tr class="odd"><td>disableplaylist</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Will disable the playlist of the player.  It will hide the playlist along with the playlist maximize button in the control bar.</td><td><em>disableplaylist=true</em></td> </tr>
+
+ <tr class="even"><td>drupalversion</td><td>Number</td><td>5</td><td></td><td>Allows you to provide the version of Drupal you are using.  <strong>It is recommended that you provide a value here, as it will save approx 1 second of your load time</strong>.  If you do not provide this value, then the player will query your server to retrieve its value (hence the time spent)</td><td><em>drupalversion=6</em></td> </tr>
+ <tr class="odd"><td>embedheight</td><td>Number</td><td>267</td><td></td><td>The height of the player when the player is embedded (using the embed code).</td><td><em>embedheight=350</em></td> </tr>
+
+ <tr class="even"><td>embedwidth</td><td>Number</td><td>320</td><td></td><td>The width of the player when the player is embedded (using the embed code).</td><td><em>embedwidth=450</em></td> </tr>
+ <tr class="odd"><td>file</td><td>String</td><td></td><td></td><td>Used to specify any file for the Dash Player to play.  This can either be a media file (image, video, or music) or an XML file that is used as the playlist for the player.  This player supports playlists in the RSS, XML, or ASX formats.</td><td><ul><li><em>file=http://www.mysite.com/files/video.flv</em></li><li><em>file=http://www.mysite.com/feed/videos.rss</em></li></ul></td> </tr>
+ <tr class="even"><td>flashonly</td><td>Boolean (true|false)</td><td>false</td><td></td><td>If true, then the player will only play videos that are the FLV format.</td><td></td> </tr>
+
+ <tr class="odd"><td>id</td><td>String</td><td></td><td></td><td>The id of this player.  This can be used in conjunction with the <strong>connect</strong> variable to set up a Remote Playlist system.</td><td>To give your player an id of <strong>dashplayer</strong>, you would just provide <strong>id=dashplayer</strong>.</td> </tr>
+ <tr class="even"><td>image</td><td>String</td><td></td><td></td><td>Variable to show an image in the media section during or before a media is playing.</td><td><em>image=http://www.mysite.com/files/image.jpg</em></td> </tr>
+
+ <tr class="odd"><td>intro</td><td>String</td><td></td><td></td><td>Allows you to pass the path of a video or an audio track to be used as the intro for the entire media playlist or single media playing.</td><td><em>intro=http://www.mysite.com/files/intro.flv</em></td> </tr>
+ <tr class="even"><td>link</td><td>String</td><td></td><td>License</td><td>Variable to show a custom logo on the Player.  <strong>You must purchase a valid license in order for this feature to work</strong></td><td><em>logo=http://www.mysite.com/files/logo.jpg</em></td> </tr>
+ <tr class="odd"><td>linkarg</td><td>Variable</td><td></td><td>Drupal</td><td>Using the "link" variables will show the dynamic playlist link section that shows the tabs at the top of the playlist.  You can use this along with the 2 following arguments to create a dynamic playlist.  This variable is the argument that is passed to the view when the tab is pressed.</td><td><ul><li>For just one link argument - <em>linkarg=comedy</em></li><li>For more than one link argument - <em>linkarg=comedy&linkarg2=admin</em></li></ul></td> </tr>
+
+ <tr class="even"><td>linkalltext</td><td>String</td><td>all</td><td>Drupal</td><td>The text to show in place of the "all" tab when the playlist links are showing.</td><td><em>linkalltext=everyone</em></td> </tr>
+ <tr class="odd"><td>linkindex</td><td>Number</td><td></td><td>Drupal</td><td>This "link" variable is used to indicate the Drupal View argument index of this link.</td><td><ul><li>For just one link argument - <em>linkindex=0</em></li><li>For more than one link argument - <em>linkindex=0&linkindex2=1</em></li></ul></td> </tr>
+
+ <tr class="even"><td>linktext</td><td>String</td><td></td><td>Drupal</td><td>This "link" variable will set the text inside of the tab</td><td><ul><li>For just one link argument - <em>linktext=High Def</em></li><li>For more than one link argument - <em>linktext=High Def&linktext2=comedy</em></li></ul></td> </tr>
+ <tr class="odd"><td>linksvertical</td><td>Boolean</td><td></td><td>false</td><td>This argument will let the player know if your playlist links are vertical or not.</td><td>If your skin has a vertical playlist, you would simply say <em>linksvertical=true</em></td> </tr>
+
+ <tr class="even"><td>logo</td><td>String</td><td></td><td>License</td><td>Variable to show a custom logo on the Player.  <strong>You must purchase a valid license in order for this feature to work</strong></td><td><em>logo=http://www.mysite.com/files/logo.jpg</em></td> </tr>
+ <tr class="odd"><td>logopos</td><td>String</td><td>BL</td><td></td><td>Allows you to change the location of the logo.  The following strings are valid locations..  <ul><li><em>BL</em> - Bottom Left</li><li><em>UR</em> - Upper Right</li><li><em>BR</em> - Bottom Right</li><li><em>UL</em> - Upper Left</li></ul></td><td>To set the logo in the Upper Right hand corner - <em>logopos=UR</em></td> </tr>
+
+ <tr class="even"><td>logowidth</td><td>Number</td><td></td><td>License</td><td>Used to scale the logo based on the width.  The height is then set to retain the same ratio.</td><td>To resize the logo - <em>logowidth=150</em></td> </tr>
+ <tr class="odd"><td>logox</td><td>Number</td><td>2</td><td></td><td>The X Offset for the logo position.</td><td>To move the logo 10 pixels in the X direction - <em>logox=10</em></td> </tr>
+
+ <tr class="even"><td>logoy</td><td>Number</td><td>2</td><td></td><td>The Y Offset for the logo position.</td><td>To move the logo 10 pixels in the Y direction - <em>logoy=10</em></td> </tr>
+ <tr class="odd"><td>loop</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Tell the player to loop back to the beginning when it is through playing either a single file or a playlist.</td><td></td> </tr>
+ <tr class="even"><td>magnify</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Will magnify the playlist using a magnification hover effect.</td><td></td> </tr>
+
+ <tr class="odd"><td>menu</td><td>String</td><td>default</td><td></td><td>Allows you to replace the current player menu with a separate menu flash application.  This will look within the <strong>plugins/menus</strong> folder and find a directory with the same name as the menu provided with this parameter and then load that SWF contained within that directory to be used as the new menu.  See the default menu provide for an example.</td><td></td> </tr>
+ <tr class="even"><td>node</td><td>Number</td><td></td><td>Drupal</td><td>Used to tell the player to show the content from only one given Drupal Node.</td><td>To only show the node with an ID of 24 - <em>node=24</em></td> </tr>
+
+ <tr class="odd"><td>pagelimit</td><td>Number</td><td>10</td><td></td><td>How many teasers are shown in each page of the playlist.</td><td><em>pagelimit=20</em></td> </tr>
+ <tr class="even"><td>pagelink</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Allows you to tell a playlist to link to a URL page when the user clicks on the teasers.  The argument to that URL is specified by <strong>pagelinkarg</strong> followed by the Node ID of the teaser being loaded.  This will only work if you use the <strong>playlistonly</strong> variable.</td><td><em>pagelink=true</em></td> </tr>
+
+ <tr class="odd"><td>pagelinkarg</td><td>String</td><td>q=node/</td><td></td><td>Allows you to change the argument passed to the URL when the user clicks on the teaser and you are using the <strong>pagelink</strong> variable.  If you are using Drupal, then you should just keep this as it is.</td><td>To change the URL when the user clicks on Node 10 to open up the page <strong>http://www.mysite.com?id=10</strong>, you would use <em>pagelinkarg="id="</em></td> </tr>
+ <tr class="even"><td>playlist</td><td>String</td><td></td><td>Drupal</td><td>Variable that is used to indicate the View in the Drupal system which represents the playlist of this player.  Along with providing this parameter, you can also pass arguments to your view by using the "arg" flashvar to allow for playlist filtering.</td><td>For a View named "my_videos" - <em>playlist=my_videos</em></td> </tr>
+
+ <tr class="odd"><td>playlistlogo</td><td>String</td><td></td><td>License</td><td>Variable to show a custom logo on the Playlist bar.  <strong>You must purchase a valid license in order for this feature to work</strong></td><td><em>logo=http://www.mysite.com/files/logo.jpg</em></td> </tr>
+ <tr class="even"><td>playlistsize</td><td>Number</td><td>205</td><td></td><td>The width or height of the playlist depending if you have the vertical flashvar set to false or not.  Using this FlashVar allows you to tile the playlist if you set the playlistsize larger than the width or height of the teaser.</td><td>If you wish to have the playlist have 2 columns of teasers, and the teasers are 100 pixels wide, you would set this parameter to 200.</td> </tr>
+
+ <tr class="odd"><td>playlistskin</td><td>String</td><td>playlist</td><td></td><td>The skin that you would like to use for your separated playlist.  This is used for the Remote Playlist support where you can have a vertical or horizontal playlist.</td><td>If you wish to use the <strong>hplaylist.swf</strong> skin for your playlist you would just use <strong>playlistskin=hplaylist</strong> for the flashvar.</td> </tr>
+ <tr class="even"><td>postreel</td><td>String</td><td></td><td></td><td>Allows you to provide a video to be played after each video is played.</td><td></td> </tr>
+
+ <tr class="odd"><td>preloader</td><td>String</td><td>default</td><td></td><td>Allows you to replace the current player preloader with a separate preloader flash application.  This will look within the <strong>plugins/preloader</strong> folder and find a directory with the same name as the voter provided with this parameter and then load that SWF contained within that directory to be used as the new pre-loader.  See the default preloader provide for an example.</td><td></td> </tr>
+ <tr class="even"><td>prereel</td><td>String</td><td></td><td></td><td>Allows you to provide a video to be played before each video is played.</td><td></td> </tr>
+ <tr class="odd"><td>scalevideo</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Allows you to turn off video scaling.  This improves video quality at the expense that the player must be sized according to the video being played instead of the video being sized to the player.</td><td><em>scalevideo=false</em></td> </tr>
+
+ <tr class="even"><td>seekvertical</td><td>Boolean (true|false)</td><td>false</td><td></td><td>To specify if you skin has a vertical seek bar or not... can't imagine it, but it is there if you need it.</td><td></td> </tr>
+ <tr class="odd"><td>service</td><td>String</td><td></td><td></td><td>Allows you to provide external 3rd party services (such as Drupal) to provide the content within the player.  This will look within the <strong>plugins/services</strong> folder and find a directory with the same name as the service provided with this parameter and then load that SWF contained within that directory to be used as the service.  See the Drupal service provide for an example.</td><td></td> </tr>
+ <tr class="even"><td>showcontrols</td><td>Boolean (true|false)</td><td>true</td><td></td><td>Show or Hide the player control bar.</td><td><em>showcontrols=false</em></td> </tr>
+
+ <tr class="odd"><td>showinfo</td><td>Boolean (true|false)</td><td>true</td><td></td><td>Show or Hide the information section (which includes the Title, voter, etc).</td><td><em>showinfo=false</em></td> </tr>
+ <tr class="even"><td>showplaylist</td><td>Boolean (true|false)</td><td>true</td><td></td><td>Will initialize the player to hide or show the playlist.</td><td><em>showplaylist=false</em></td> </tr>
+ <tr class="odd"><td>shuffle</td><td>Boolean (true|false)</td><td>false</td><td></td><td>Used to tell the player that you would like to select the elements to play at random instead of in synchronously.</td><td>If you would like to shuffle the playlist as they play, then you would say <em>shuffle=true</em>.</td> </tr>
+
+ <tr class="even"><td>skin</td><td>String</td><td></td><td></td><td>Used to specify which skin you would like for the Dash Player to use.  A skin can be any external SWF file that you have in your "skins" directory.  You should not use the ".swf" extension when specifying the skin.  When you specify this flashvar, the player will then look for a directory of the same name within the "skins" folder.  There must be a "skin.swf" file within that directory for this to work correctly.</td><td>If you wish to use the "myskin" SWF file in the "skins/myskin" folder, you would simply use <em>skin=myskin</em>.</td> </tr>
+ <tr class="odd"><td>spectrum</td><td>String</td><td>revolt</td><td></td><td>Will add the spectrum analyzer provided within the <strong>plugins</strong> directory when an audio track is playing.</td><td></td> </tr>
+
+ <tr class="even"><td>spinner</td><td>String</td><td>default</td><td></td><td>Allows you to replace the current player spinner with a separate spinner flash application.  This will look within the <strong>plugins/spinners</strong> folder and find a directory with the same name as the menu provided with this parameter and then load that SWF contained within that directory to be used as the new spinner.  See the default spinner provide for an example.</td><td></td> </tr>
+ <tr class="odd"><td>streamer</td><td>String</td><td></td><td></td><td>Used to indicate the RTMP stream source.</td><td></td> </tr>
+ <tr class="even"><td>taggingenabled</td><td>Boolean</td><td>false</td><td>Drupal</td><td>Allows you to enable or disable the media free tagging support.  This feature is only available for Drupal installations.</td><td>To enable free tagging support, just provide <em>taggingenabled=true</em>.</td> </tr>
+
+ <tr class="odd"><td>taglinkcolor</td><td>uint</td><td>0x0000FF</td><td>Drupal</td><td>Allows you to provide the hover color for the free tagging links.</td><td>To change the hover color to red you would say, <em>taglinkcolor=0xFF0000</em>.</td> </tr>
+ <tr class="even"><td>tagplaylist</td><td>String</td><td></td><td>Drupal</td><td>Allows you to provide a separate playlist for the free tagging links.</td><td><em>tagplaylist=tagging_videos</em>.</td> </tr>
+
+ <tr class="odd"><td>theme</td><td>String</td><td></td><td></td><td>Used to specify which theme you would like for the Dash Player to use.  It uses this flashvar to then look for a directory of the same name within the "themes" folder within the skin you are using.  There must be a "theme.xml" file within that directory for this to work correctly.</td><td>If you wish to show the "green" theme which would simply be a "green" directory within the "skins/{yourtheme}/themes" folder, then you would simply say <em>theme=green</em>.</td> </tr>
+ <tr class="even"><td>tween</td><td>String</td><td>strong_easein</td><td></td><td>Allows you to change the Tween method used for the hiding and showing of the playlist.  The tween methods are determined by the Tween Class ("Strong", "Elastic", etc), and the Tween type ("easein", "easeout", etc).  You then put these together (all lowercase) and separated by an underscore.</td><td>To change the playlist tween to be "Elastic.easeIn" - <em>tween=elastic_easein</em></td> </tr>
+
+ <tr class="odd"><td>tweentime</td><td>Number</td><td>10</td><td></td><td>The length (in time) of the tween operation being performed.</td><td>To make it slower - <em>tweentime=15</em></td> </tr>
+ <tr class="even"><td>vertical</td><td>Boolean (true|false)</td><td>true</td><td></td><td>Used to specify if your skin has a vertical playlist or not.</td><td>If you wish to have your playlist be horizontal in your skin, you would simply use <em>vertical=true</em>.</td> </tr>
+
+ <tr class="odd"><td>viewsenabled</td><td>Boolean (true|false)</td><td>true</td><td>Drupal</td><td>Disable or Enable the view counter for the player.</td><td><em>viewsenabled=false</em></td> </tr>
+ <tr class="even"><td>volume</td><td>Number</td><td>80</td><td></td><td>What volume to initialize the player to.</td><td><em>volume=50</em></td> </tr>
+
+ <tr class="odd"><td>volumevertical</td><td>Boolean (true|false)</td><td>false</td><td></td><td>To specify if your skin has a vertical volume bar</td><td></td> </tr>
+ <tr class="even"><td>voter</td><td>String</td><td>default</td><td></td><td>Allows you to replace the current voter with a separate voter flash application.  This will look within the <strong>plugins/voters</strong> folder and find a directory with the same name as the voter provided with this parameter and then load that SWF contained within that directory to be used as the new voter.  See the default voter provide for an example.</td><td></td> </tr>
+
+ <tr class="odd"><td>votingenabled</td><td>Boolean (true|false)</td><td>true</td><td>Drupal</td><td>Disable or Enable the player voting mechanism.</td><td><em>votingenabled=false</em></td> </tr>
+</tbody>
+</table>
+<br/></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

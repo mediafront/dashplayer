@@ -1,0 +1,8 @@
+<params>
+	<gateway><!-- Enter your Drupal Gateway URL here --></gateway>
+	<apiKey><!-- Enter your Drupal Services API Key here --></apiKey>
+	<baseURL><!-- Enter the Base URL for your site here --></baseURL>
+	<flashvars>
+	<!-- You can specify any flashvars here by providing the name of the flashvar as the tag, and the value in between those tags. -->
+	</flashvars>
+</params>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<title>Understanding the Dash Player configuration file.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body {
+  margin: 1em;
+  background-color: #fff;
+}
+div.codeblock
+{
+padding-top: 5px;
+padding-right: 5px;
+padding-bottom: 5px;
+padding-left: 5px;
+border-top-width: 1px;
+border-right-width: 1px;
+border-bottom-width: 1px;
+border-left-width: 1px;
+border-top-style: solid;
+border-right-style: solid;
+border-bottom-style: solid;
+border-left-style: solid;
+border-top-color: #cccccc;
+border-right-color: #cccccc;
+border-bottom-color: #cccccc;
+border-left-color: #cccccc;
+background-color: #eeeeee;
+}
+th {
+  text-align: left;
+  color: #006;
+  border-bottom: 1px solid #ccc;
+}
+tr.odd {
+  background-color: #ddd;
+}
+tr.even {
+  background-color: #fff;
+}
+td {
+  padding: 5px;
+}
+#menu {
+  visibility: hidden;
+}
+#main {
+  margin: 1em;
+}
+</style>
+</head>
+<body>
+<div class="section-1">
+<div class="section-2">
+<div class="section-3">
+<div id="node-140" class="section-4">
+<h2>Understanding the Dash Player configuration file</h2>
+<p>The Dash Player has a built in mechanism for providing any configuration (including FlashVars) using an external configuration file.  These configuration files are located in the <strong>config</strong> directory next to the actual player SWF file.  Within this directory, you can specify any number of different configuration XML files that can then be referenced using the flashvar <strong>config</strong>.  However, when you provide this FlashVar, you should not include the ".xml", but just give the name of the configuration.  For example, if you would like for your player to use the configuration file <strong>config/myconfig.xml</strong>, you would simply need to provide <strong>config=myconfig</strong> as the Flash Var to the player.  This was done for security reasons.</p>
+<p>Each of the config files located in this directory should follow the following schema...</p>
+<div class="codeblock"><code>&lt;params&gt;<br />&nbsp;&nbsp; &lt;license&gt;&lt;!-- Enter your License here --&gt;&lt;/license&gt;<br />&nbsp;&nbsp; &lt;gateway&gt;&lt;!-- Enter your Drupal Gateway URL here --&gt;&lt;/gateway&gt;<br />&nbsp;&nbsp; &lt;apiKey&gt;&lt;!-- Enter your Drupal Services API Key here --&gt;&lt;/apiKey&gt;<br />&nbsp;&nbsp; &lt;baseURL&gt;&lt;!-- Enter the Base URL for your site here --&gt;&lt;/baseURL&gt;<br />&nbsp;&nbsp; &lt;flashvars&gt;<br />&nbsp;&nbsp; &lt;!-- You can specify any flashvars <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; here by providing the name of the <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; flashvar as the tag, and the value in <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; between those tags. --&gt;<br />&nbsp;&nbsp; &lt;/flashvars&gt;<br />&lt;/params&gt;</code></div><br/>
+Each of these tags are described in the following table...<br/>
+<table>
+ <thead><tr><th 0="Tag Name" 1="Requirement" 2="Description"></th> </tr></thead>
+<tbody>
+ <tr class="odd"><td><strong>license</strong></td><td></td><td>This is where you will place your license if you purchase a license for commercial use.</td> </tr>
+ <tr class="even"><td><strong>gateway</strong></td><td>Drupal Only</td><td>This is the URL to your Drupal Services Gateway.</td> </tr>
+ <tr class="odd"><td><strong>apiKey</strong></td><td>Drupal Only</td><td>This is the Services API Key to provide a secure connection between the player and your Drupal site</td> </tr>
+ <tr class="even"><td><strong>baseURL</strong></td><td></td><td>This is the Base URL of your domain name.  For this site, this value is <strong>http://www.tmtdigital.com</strong></td> </tr>
+ <tr class="odd"><td><strong>flashvars</strong></td><td></td><td>Allows you to pre-define flash variables so that they are not required when you actually embed the player in your page.  For example, if you wish to have all your players autostart the media, then you can provide a <strong>&lt;autostart&gt;true&lt;/autostart&gt;</strong> tag within this flashvars tag.</td> </tr>
+</tbody>
+</table>
+<br/>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

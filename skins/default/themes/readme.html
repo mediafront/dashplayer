@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<title>Creating themes for your skin.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body {
+  margin: 1em;
+  background-color: #fff;
+}
+div.codeblock
+{
+padding-top: 5px;
+padding-right: 5px;
+padding-bottom: 5px;
+padding-left: 5px;
+border-top-width: 1px;
+border-right-width: 1px;
+border-bottom-width: 1px;
+border-left-width: 1px;
+border-top-style: solid;
+border-right-style: solid;
+border-bottom-style: solid;
+border-left-style: solid;
+border-top-color: #cccccc;
+border-right-color: #cccccc;
+border-bottom-color: #cccccc;
+border-left-color: #cccccc;
+background-color: #eeeeee;
+}
+th {
+  text-align: left;
+  color: #006;
+  border-bottom: 1px solid #ccc;
+}
+tr.odd {
+  background-color: #ddd;
+}
+tr.even {
+  background-color: #fff;
+}
+td {
+  padding: 5px;
+}
+#menu {
+  visibility: hidden;
+}
+#main {
+  margin: 1em;
+}
+</style>
+</head>
+<body>
+<div class="section-1">
+<div class="section-2">
+<div class="section-3">
+<div id="node-140" class="section-4">
+<h2>Creating a Theme for your Skin</h2>
+<p>So, not only does the Dash Player let you create your very own skins, but it also introduces a feature that no other player offers... the ability to provide multiple themes for any given skin.  Basically what a theme does is allow you to change the color of any object within your skin.  And just to make things better, the colors in these themes can be provided dynamically (i.e. through the use of FlashVars).  This allows you to create a truely dynamic player that allows your users to customize how THEY would like your skin to look.  Not only do your users benefit from this feature, but also you as the designer for your skin.  Now, you can have many different color variations for your skin without having to recompile the player for each color selection, which would require you to change the color of each MovieClip manually!  You can only imagine how much time this feature will save you.  This section will go into detail on how you can create as many themes as you would like for your skin, as well as take advantage of the dynamic themeing features built into the Dash Player.<br/><br />
+Each theme for your skin is simply denoted by a separate directory that contains a <strong>theme.xml</strong> file.  It is this file that tells the player which objects you would like to color and what color you would like to make them.  Here is how the theme file works...<br/><br />
+The Dash Player Theme engine allows you to use any number of colors that you want too.  Each of these colors should be provided in the section in the theme that is contained between the <strong><code>&lt;colors&gt;</code></strong> tag.  Here you can give your color any name that you would like using the actual tag name...  The RGB value for that color is then contained within that color tag.  For example, lets suppose that you would like to specify a dark color that would be used for the play button, and that you would like to make it dark red.  For this example, you would provide the following in the <code>&lt;colors&gt;</code> section.
+<div class="codeblock"><code>&lt;theme_color_play_button&gt;0xFF6666&lt;/theme_color_play_button&gt;</code></div><br />
+The next task is to actually associate that color with an actual element in your theme.  You do this by simply providing the <strong><code>&lt;fill&gt;</code></strong> tag, which then contains the <strong><code>&lt;color&gt;</code></strong> (which you would then just use the name of the color you gave above) and any number of MovieClips (denoted using the <strong><code>&lt;path&gt;</code></strong> tag) that will have that color.  If you look at the themes provided in the default skin, it is fairly easy to understand how this works.  So, for our given example above, to associate the deep red color with the Play icon in your skin, you would just use the following.<br/><br />
+<div class="codeblock"><code>&lt;theme&gt;<br />&nbsp;&nbsp; &lt;colors&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;theme_color_play_button&gt;0xFF6666&lt;/theme_color_play_button&gt;<br />&nbsp;&nbsp; &lt;/colors&gt;<br />&nbsp;&nbsp; &lt;fill&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;color&gt;theme_color_play_button&lt;/color&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;path&gt;dash/skin/node/fields/media/controlBar/playPauseButton/onButton/icon&lt;/path&gt;<br />&nbsp;&nbsp; &lt;/fill&gt;<br />&lt;/theme&gt;</code></div><br />
+See how easy this is?...  But it gets SOOOO much better.  Now lets suppose that you wish to dynamically change the color of the play icon by passing in a FlashVar called <strong>color=FF6666</strong>.  The Dash Player takes themeing one step further by allowing for dynamic colors to be provided.  And here is how to construct your player to take advantage of this...<br />
+<br/></p>
+<h2>Enabling your theme for Dynamic Colors (using FlashVars)</h2>
+<p>To create a theme that accepts dynamic colors from the flashvars is extrememly easy.  Basically all that it entails is to replace the actual RGB value given within the <code>&lt;colors&gt;</code> section of the theme with a keyword that begins with <strong>color</strong>.  You can have as many dynamic colors as you like, as long as they begin with <strong>color</strong>, such as <strong>color1</strong>, <strong>color2</strong>, or <strong>color_shamalamadingdong</strong> if you really want...  The key here is to create a name that can then be referenced using the flashvar of the same name passed to the player.  For example, lets suppose that you wish to construct a theme that dynamically changes the color of the play and pause button.  For this example, you would provide in your <strong>theme.xml</strong> file for your theme, the following code...<br />
+<div class="codeblock"><code>&lt;code&gt;<br />&lt;theme&gt;<br />&nbsp;&nbsp; &lt;colors&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;theme_color_play_button&gt;color_play&lt;/theme_color_play_button&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;theme_color_pause_button&gt;color_pause&lt;/theme_color_pause_button&gt;<br />&nbsp;&nbsp; &lt;/colors&gt;<br />&nbsp;&nbsp; &lt;fill&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;color&gt;theme_color_play_button&lt;/color&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;path&gt;dash/skin/node/fields/media/controlBar/playPauseButton/onButton/icon&lt;/path&gt;<br />&nbsp;&nbsp; &lt;/fill&gt;<br />&nbsp;&nbsp; &lt;fill&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;color&gt;theme_color_pause_button&lt;/color&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;path&gt;dash/skin/node/fields/media/controlBar/playPauseButton/offButton/icon&lt;/path&gt;<br />&nbsp;&nbsp; &lt;/fill&gt;<br />&lt;/theme&gt;</code></div><br />
+Using this theme above, you can now provide the <strong>color_play=FF0000</strong> flashvar to change your play icon to red, and the <strong>color_pause=0000FF</strong> to change your pause icon to blue!!!  Tell me it doesn't get any cooler than that?!<br/></p>
+<br/></p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

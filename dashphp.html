@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+<title>Using Dash Media Player with PHP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- base href="http://www.tmtdigital.com/" -->
+<style type="text/css">
+body {
+  margin: 1em;
+  background-color: #fff;
+}
+
+div.codeblock
+{
+padding-top: 5px;
+padding-right: 5px;
+padding-bottom: 5px;
+padding-left: 5px;
+border-top-width: 1px;
+border-right-width: 1px;
+border-bottom-width: 1px;
+border-left-width: 1px;
+border-top-style: solid;
+border-right-style: solid;
+border-bottom-style: solid;
+border-left-style: solid;
+border-top-color: #cccccc;
+border-right-color: #cccccc;
+border-bottom-color: #cccccc;
+border-left-color: #cccccc;
+background-color: #eeeeee;
+}
+
+li {
+   margin: 8px 0 0 0;
+}
+
+th {
+  text-align: left;
+  color: #006;
+  border-bottom: 1px solid #ccc;
+}
+tr.odd {
+  background-color: #ddd;
+}
+tr.even {
+  background-color: #fff;
+}
+td {
+  padding: 5px;
+}
+#menu {
+  visibility: hidden;
+}
+#main {
+  margin: 1em;
+}
+</style>
+</head><body>
+<div class="section-1">
+<div class="section-2">
+<div class="section-3">
+<div class="section-4">
+<div id="node-408" class="section-5">
+<h1 class="book-heading">Using the Dash Media Player with PHP</h1>
+<p>The following is a brief tutorial on how to implement the Dash Media Player in your PHP website.  Although the player was designed to be used with the power and flexibility of <a href="http://www.drupal.org">Drupal Content Management System</a>, you are more than welcome to use the PHP classes provided to easily implement this player in your PHP Website.  If you would like more information on advanced usage for the player, simply go to <a href="http://www.tmtdigital.com">TMT Digital</a>.</p>
+<h2>Package Contents</h2>
+<p>When you download the new Dash Media Player package, you will notice the following files...</p>
+<ul>
+<li><em>index.php</em> - This file is a sample page on how you can incorporate the Dash Media Player using simply PHP.</li>
+<li><em>dash.php</em> - This file is used to include in your PHP file so that you can use the <strong>dashplayer_get_player</strong> API used throughout this website.  To include this in your PHP page and use the <strong>dashplayer_get_player</strong> API, you would simply use the following code in your PHP page.<br/><br/>
+<div class="codeblock"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include (</span><span style="color: #DD0000">'/player/dash.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'width'</span><span style="color: #007700">] = </span><span style="color: #0000BB">652</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'height'</span><span style="color: #007700">] = </span><span style="color: #0000BB">432</span><span style="color: #007700">;<br />print </span><span style="color: #0000BB">dashplayer_get_player</span><span style="color: #007700">(</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div><br/>
+Note that this may be different depending on where the <strong>dash.php</strong> file is located relative to the PHP file including the library.</li>
+<li><em>DashPlayer.php</em> - This is the DashPlayer class that can also be used to construct the Dash Media Player in a class like way.  For example, you could show the player using the following code...<br/><br/>
+<div class="codeblock"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include(</span><span style="color: #DD0000">'/player/DashPlayer.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'width'</span><span style="color: #007700">] = </span><span style="color: #0000BB">652</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'height'</span><span style="color: #007700">] = </span><span style="color: #0000BB">432</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$player </span><span style="color: #007700">= new </span><span style="color: #0000BB">DashPlayer</span><span style="color: #007700">(</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$player</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">show</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div></li>
+<li><em>DashPlaylist.php</em> - This is the playlist management class for getting and caching playlists within the playlists directory.</li>
+<li><em>getplaylist.php</em> - This is interface file for getting and showing any playlist using the GET method.</li>
+<li><em>DashUtils.php</em> - PHP helper functions used by DashPlayer.php and DashPlaylist.php.</li>
+<li><em>dashPlayer.swf</em> - The Dash Media Player (<strong>VERSION 1.2.1</strong>).</li>
+<li><em>dashPlayer.js</em> - The Dash Media Player JavaScript interface gateway.  This is used for <a href="http://www.tmtdigital.com/remoteplaylist">Remote Playlists</a> as well as controlling the player from external sources.</li>
+<li><strong>skins</strong> - This directory contains all the <a href="skins/readme.html">skins</a> to be used by the Dash Media Player as well as their respective <a href="skins/default/themes/readme.html">Themes</a>.</li>
+<li><strong>cache</strong> - This is the directory where the cached playlist XML files gets created.  If you wish to rebuild your playlists, then you can simply delete the contents of this folder, and they will be regenerated.</li>
+<li><strong>playlists</strong> - This directory contains all the playlists that can be used in the Dash Media Player using the <strong>playlist</strong> parameter.  Please note, that if you plan on having a lot of different playlists, it is probably worth exploring the Drupal integration which manages these playlists much more elegantly than having many different folders with playlists.</li>
+</ul>
+<h2>Quick Help Links</h2>
+<p>Below is a listing of some quick help topics to help you get started.  If you would like to learn more, you are more then welcome to visit the <a href="http://www.tmtdigital.com/node/37">Dash Media Player Documentation</a> where you will find advanced usage topics for getting the most of the Dash Media Player.</p>
+<ul>
+<li><a href="flashvars.html">Dash Media Player Flash Variables (FlashVars)</a></li>
+<li><a href="skins/readme.html">Skinning the Dash Media Player</a></li>
+<li><a href="skins/default/themes/readme.html">Themeing the Dash Media Player</a></li>
+<li><a href="config/readme.html">Understanding the <strong>dashconfig.xml</strong> (Dash Player Configuration) file.</a></li>
+<li><a href="sample.html">Sample High Definition Movie!</a></li>
+</ul>
+<h2>Getting Started</h2>
+<ul>
+<li><strong>Step 1: Copy Contents</strong> - The first thing that you will want to do is first copy all the contents from the downloaded Dash Media Player package to your server.  I recommend creating a <strong>player</strong> directory in your root directory to contain all the contents of the downloaded player files.</li>
+<li><strong>Step 2: Change Permissions</strong> - Now that the files have been copied, you need to make sure that the <strong>cache</strong> folder has ALL permissions enabled (ie. 777).  You can do this by right clicking on the <strong>cache</strong> folder and then select the Permissions and make sure all the check boxes are checked.</li>
+<li><strong>Step 3:  Add the Music / Videos!</strong> - You can now start adding files to the <strong>default</strong> playlist directory.  Each different track should be in its own folder that begins with <strong>track</strong> and followed by the track number.  For example, if you wish to show a playlist with three different songs, then your directory structure would look like the following...<br/>
+<ul>
+   <li style="margin-left:10px;"><strong>player</strong>
+      <ul style="margin-left:10px;">
+         <li><em>dashPlayer.swf</em></li>
+         <li><em>index.php</em></li>
+         <li><em>DashPlayer.php</em></li>
+         <li><em>DashPlaylist.php</em></li>
+         <li><em>DashUtils.php</em></li>
+         <li><em>getplaylist.php</em></li>
+         <li><em>dash.php</em></li>
+         <li><strong>cache</strong></li>
+         <li><strong>skins</strong></li>
+         <li><strong>playlists</strong>
+            <ul style="margin-left:10px;">
+               <li><strong>default</strong>
+                  <ul style="margin-left:10px;">
+                     <li><strong>track1</strong>
+                        <ul style="margin-left:10px;">
+                           <li><em>Jack Johnson - Good People.mp3</em>
+                           <li><em>AlbumArt.jpg</em></li>
+                        </ul>
+                     </li>
+                     <li><strong>track2</strong>
+                        <ul style="margin-left:10px;">
+                           <li><em>John Mayer - Gravity.mp3</em>
+                           <li><em>AlbumArt.jpg</em></li>
+                        </ul>
+                     </li>
+                     <li><strong>track3</strong>
+                        <ul style="margin-left:10px;">
+                           <li><em>Sade - By Your Side.mp3</em>
+                           <li><em>AlbumArt.jpg</em></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </li>
+</ul></li>
+</ul>
+<h2>Show the Dash Media Player in your PHP page</h2>
+<p>Now that you have your tracks in the directories they need to be, the next and final step is to show the player on your page.  You do this using the following PHP code in your php file.<br/><br/>
+<div class="codeblock"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include (</span><span style="color: #DD0000">'player/dash.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'width'</span><span style="color: #007700">] = </span><span style="color: #0000BB">652</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'height'</span><span style="color: #007700">] = </span><span style="color: #0000BB">432</span><span style="color: #007700">;<br />print </span><span style="color: #0000BB">dashplayer_get_player</span><span style="color: #007700">(</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div></br><br />
+It is also important to note that you can have more flexibility by using the <strong>DashPlayer</strong> class, so you can also do the same thing as above by using the following code.<br/><br/>
+<div class="codeblock"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include (</span><span style="color: #DD0000">'player/DashPlayer.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'width'</span><span style="color: #007700">] = </span><span style="color: #0000BB">652</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'height'</span><span style="color: #007700">] = </span><span style="color: #0000BB">432</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$player </span><span style="color: #007700">= new </span><span style="color: #0000BB">DashPlayer</span><span style="color: #007700">(</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$player</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">show</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div><br />
+After you have one of these in your PHP file, you should then be able to navigate to that page and see your playlist in the Media player!</br></p>
+<h2>Adding songs to the playlist...</h2>
+<p>Adding new songs to your playist is VERY easy... Simply create a new <strong>track</strong> folder in the <strong>playlists/default</strong> folder followed by the number which is the play order of the track in the playlist.  For example... If I wish to add a new song that is position 4 in my playlist, then I would simply create a new folder in my <strong>default</strong> playlists folder called <strong>track4</strong>, and then place my image and media file in that directory.  YES, IT IS THAT EASY!!!<br />
+It is very important to note that when you add a new track by creating a new <strong>track</strong> directory in your playlist, you need to delete the cache XML file out of the <strong>cache</strong> folder in order for that change to take effect.  Then this XML file will get regenerated the next time you show the Media Player in your page.<br/></p>
+<h2>Adding new playlists</h2>
+<p>Adding new playlists is just a simple as adding a new directory in the <strong>playlists</strong> folder, and then after that add the track folders that you normally would with the <strong>default</strong> playlist folder.  Then, once you have done that, you will then add the <strong>playlist</strong> parameter to the <strong>dashplayer_get_player</strong> API, like this...<br/><br/>
+<div class="codeblock"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include (</span><span style="color: #DD0000">'player/dash.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$params</span><span style="color: #007700">[</span><span style="color: #DD0000">'playlist'</span><span style="color: #007700">] = </span><span style="color: #DD0000">'myplaylist'</span><span style="color: #007700">;<br />print </span><span style="color: #0000BB">dashplayer_get_player</span><span style="color: #007700">(</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div><br />
+<br/></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
