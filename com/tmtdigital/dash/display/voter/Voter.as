@@ -149,8 +149,8 @@
       private function onVoteSet( vote:Object )
       {
          // Set the selected fill width
-	     setVote( {value: (userMode ? voteValue : vote.value)} );			
-         dispatchEvent( new DashEvent( DashEvent.VOTE_SET, vote ) );			
+         setVote( {value: (userMode ? voteValue : vote.value)} );			
+         dispatchEvent( new DashEvent( DashEvent.VOTE_SET, vote ) );		
       }	
       
       private function onVoteDelete( vote:Object )

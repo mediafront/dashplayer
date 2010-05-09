@@ -22,11 +22,13 @@
          
          // Set up our voters.
          vote = new Voter( _skin.vote );
+		 vote.addEventListener( DashEvent.VOTE_GET, voteHandler );
          vote.addEventListener( DashEvent.VOTE_SET, voteHandler );
          vote.addEventListener( DashEvent.VOTE_DELETE, voteHandler );
          vote.addEventListener( DashEvent.PROCESSING, voteHandler );
          
          uservote = new Voter( _skin.uservote, true );
+		 uservote.addEventListener( DashEvent.VOTE_GET, voteHandler );			
          uservote.addEventListener( DashEvent.VOTE_SET, voteHandler );
          uservote.addEventListener( DashEvent.VOTE_DELETE, voteHandler );			
          uservote.addEventListener( DashEvent.PROCESSING, voteHandler );			

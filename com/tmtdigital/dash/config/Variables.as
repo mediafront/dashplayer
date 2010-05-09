@@ -86,6 +86,7 @@ package com.tmtdigital.dash.config
       public var taglinkcolor:uint = 0x6666FF;
       public var tagplaylist:String = '';
       public var teaserplay:Boolean = false;
+      public var teaserselect:Boolean = true;
       public var termlinks:Boolean = true;
       public var termspacing:Number = 5;
       public var theme:String = "default";
