@@ -537,6 +537,44 @@ function dashSetPlaylist( dashId, message ) {
 };
 
 /** 
+ * Sets the vote of the playlist.
+ *
+ * @param - The ID of the player you would like to send this request too.
+ * @param - The message object that you would like to use to provide to the playlist.
+ */
+function dashSetPlaylistVote( dashId, nodeId, vote ) {
+   var dashObj = getDashObject( dashId );
+   if( dashObj ) {
+       try {         
+          dashObj.setPlaylistVote( nodeId, vote );
+       } catch( error ) {
+          dashDebug( error );
+       }        
+       return true;
+   }
+   return false;
+};
+
+/** 
+ * Sets the vote of the node.
+ *
+ * @param - The ID of the player you would like to send this request too.
+ * @param - The message object that you would like to use to provide to the playlist.
+ */
+function dashSetVote( dashId, vote ) {
+   var dashObj = getDashObject( dashId );
+   if( dashObj ) {
+       try {         
+          dashObj.setVote( vote );
+       } catch( error ) {
+          dashDebug( error );
+       }        
+       return true;
+   }
+   return false;
+};
+
+/** 
  * Resets the controls.
  *
  * @param - The ID of the player you would like to send this request too.
