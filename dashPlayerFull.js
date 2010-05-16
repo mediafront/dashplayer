@@ -556,6 +556,25 @@ function dashSetPlaylistVote( dashId, nodeId, vote ) {
 };
 
 /** 
+ * Sets the user vote of the playlist.
+ *
+ * @param - The ID of the player you would like to send this request too.
+ * @param - The message object that you would like to use to provide to the playlist.
+ */
+function dashSetPlaylistUserVote( dashId, nodeId, vote ) {
+   var dashObj = getDashObject( dashId );
+   if( dashObj ) {
+       try {         
+          dashObj.setPlaylistUserVote( nodeId, vote );
+       } catch( error ) {
+          dashDebug( error );
+       }        
+       return true;
+   }
+   return false;
+};
+
+/** 
  * Sets the vote of the node.
  *
  * @param - The ID of the player you would like to send this request too.
@@ -566,6 +585,25 @@ function dashSetVote( dashId, vote ) {
    if( dashObj ) {
        try {         
           dashObj.setVote( vote );
+       } catch( error ) {
+          dashDebug( error );
+       }        
+       return true;
+   }
+   return false;
+};
+
+/** 
+ * Sets the user vote of the node.
+ *
+ * @param - The ID of the player you would like to send this request too.
+ * @param - The message object that you would like to use to provide to the playlist.
+ */
+function dashSetUserVote( dashId, vote ) {
+   var dashObj = getDashObject( dashId );
+   if( dashObj ) {
+       try {         
+          dashObj.setUserVote( vote );
        } catch( error ) {
           dashDebug( error );
        }        
