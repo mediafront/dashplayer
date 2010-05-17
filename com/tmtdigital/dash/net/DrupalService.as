@@ -48,7 +48,7 @@ package com.tmtdigital.dash.net
                trace("Connection Failed: " + error);
             }
 
-            Service.call( Service.SYSTEM_CONNECT, onConnect, onConnectFailed, new Array() );
+            Service.call( Service.SYSTEM_CONNECT, onConnect, onConnectFailed );
          }
       }
 
@@ -208,7 +208,10 @@ package com.tmtdigital.dash.net
       {
          var command:Object = getCommand( message.command );
          message.command = command.command;
-         message.args.unshift( sessionId );
+			
+         if( sessionId ) {
+         	message.args.unshift( sessionId );
+         }
 			
          var useKey:Boolean = (message.useKey is Boolean) ? message.useKey : command.useKey;
 			
