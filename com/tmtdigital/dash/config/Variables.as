@@ -121,6 +121,7 @@ package com.tmtdigital.dash.config
       public var trackuser:Boolean = false;
       public var drupalversion:Number = 0;
       public var autoscroll:Boolean = true;
+      public var incrementtime:Number = 5;
       public var subplypath:String = "http://content.plymedia.com/players/default/plyviewer";
    }
 }

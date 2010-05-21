@@ -164,8 +164,8 @@ package com.tmtdigital.dash.display
       private function loadMedia()
       {
          if( files.hasMedia ) {
-            media.removeEventListener(  DashEvent.MEDIA_PLAYING, onMediaPlaying );
-            media.addEventListener(  DashEvent.MEDIA_PLAYING, onMediaPlaying );
+            media.removeEventListener( DashEvent.MEDIA_UPDATE, onMediaUpdate );
+            media.addEventListener( DashEvent.MEDIA_UPDATE, onMediaUpdate );
             media.addMediaToQueue( files.getFile( "intro" ) );
             media.addMediaToQueue( files.getFile( "commercial" ) );
             media.addMediaToQueue( files.getFile( "prereel" ) );
@@ -195,9 +195,9 @@ package com.tmtdigital.dash.display
          }			
       }
 
-      protected function onMediaPlaying(e:DashEvent)
+      protected function onMediaUpdate(e:DashEvent)
       {
-         if (Params.flashVars.viewsenabled && ! incremented) {
+         if (Params.flashVars.viewsenabled && (e.target.playheadTime > Params.flashVars.incrementtime) && !incremented) {
             incremented = true;
             Service.call( Service.INCREMENT_NODE_COUNTER, setViewsField, null, node.nid );
          }
