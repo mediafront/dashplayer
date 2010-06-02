@@ -21,9 +21,6 @@ var dashObjects = new Array();
 var dashCallback = function( args ){};
 var dashId = "dashplayer";
 
-var activePlaylist = "";
-var activePlayer = "";
-
 $(document).ready(function() {
    dashReady = true;  
 });
@@ -153,24 +150,6 @@ function dashSpawn( dashId ) {
        return true;
    }   
    return false;
-};
-
-/** 
- * Set's the active playlist.
- *
- * @param - The ID of the playlist you would like to set as active.
- */
-function dashSetActivePlaylist( id ) {
-	activePlaylist = id;
-};
-
-/** 
- * Set's the active player.
- *
- * @param - The ID of the player you would like to set as active.
- */
-function dashSetActivePlayer( id ) {
-	activePlayer = id;
 };
 
 /** 
