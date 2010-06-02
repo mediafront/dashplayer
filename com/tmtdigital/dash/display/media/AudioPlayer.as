@@ -73,6 +73,7 @@
       {
          switch ( e.type ) {
             case Event.ID3 :
+			   dispatchEvent( new DashEvent( DashEvent.MEDIA_METADATA ) );
                dispatchEvent( new DashEvent( DashEvent.MEDIA_READY ) );
                break;
 
@@ -156,7 +157,7 @@
 
       public function get totalTime():Number
       {
-         return (( bytesLoaded < bytesTotal ) ? 240 : (length / 1000));
+         return id3.TLEN ? id3.TLEN : ((( bytesLoaded < bytesTotal ) ? 240 : (length / 1000)));
       }
 
       public function get playheadTime():Number
