@@ -78,6 +78,7 @@ package com.tmtdigital.dash.display
          taxonomy = new Taxonomy(_skin.taxonomy);
          selected = !Params.flashVars.teaserplay;
          values = skin.values;
+         images = new Array();
          logo = new Image( skin.logo );
 
          if (skin.views) {
@@ -96,6 +97,15 @@ package com.tmtdigital.dash.display
          node = _node;
          incremented = false;
          files = new Files( node );
+			
+         // Unload all of our images.
+         for( var i:uint=0; i < images.length; i++ ) {
+            images[i].clearImage();
+         }
+			
+         // Empty our images array.
+         images = new Array();
+			
          setFieldsMC();
       }
 
@@ -359,6 +369,7 @@ package com.tmtdigital.dash.display
             
             fieldObject = new Image( fieldObject );
             fieldObject.loadImage( (image ? image.path : "") );
+            images.push( fieldObject );
          }
       }
 
@@ -441,6 +452,7 @@ package com.tmtdigital.dash.display
       public var taxonomy:Taxonomy;
       public var logo:Image;
       public var files:Files;
+      public var images:Array;
       public var infoShown:Boolean=true;
       public var selected:Boolean;
       private var node:Object;
