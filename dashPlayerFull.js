@@ -542,11 +542,11 @@ function dashSetPlaylist( dashId, message ) {
  * @param - The ID of the player you would like to send this request too.
  * @param - The message object that you would like to use to provide to the playlist.
  */
-function dashSetPlaylistVote( dashId, nodeId, vote ) {
+function dashSetPlaylistVote( dashId, nodeId, voteTag, voteValue ) {
    var dashObj = getDashObject( dashId );
    if( dashObj ) {
        try {         
-          dashObj.setPlaylistVote( nodeId, vote );
+          dashObj.setPlaylistVote( nodeId, {tag:voteTag, value:voteValue} );
        } catch( error ) {
           dashDebug( error );
        }        
@@ -561,11 +561,11 @@ function dashSetPlaylistVote( dashId, nodeId, vote ) {
  * @param - The ID of the player you would like to send this request too.
  * @param - The message object that you would like to use to provide to the playlist.
  */
-function dashSetPlaylistUserVote( dashId, nodeId, vote ) {
+function dashSetPlaylistUserVote( dashId, nodeId, voteTag, voteValue ) {
    var dashObj = getDashObject( dashId );
    if( dashObj ) {
        try {         
-          dashObj.setPlaylistUserVote( nodeId, vote );
+          dashObj.setPlaylistUserVote( nodeId, {tag:voteTag, value:voteValue} );
        } catch( error ) {
           dashDebug( error );
        }        
@@ -580,11 +580,11 @@ function dashSetPlaylistUserVote( dashId, nodeId, vote ) {
  * @param - The ID of the player you would like to send this request too.
  * @param - The message object that you would like to use to provide to the playlist.
  */
-function dashSetVote( dashId, vote ) {
+function dashSetVote( dashId, voteTag, voteValue ) {
    var dashObj = getDashObject( dashId );
    if( dashObj ) {
        try {         
-          dashObj.setVote( vote );
+          dashObj.setVote( {tag:voteTag, value:voteValue} );
        } catch( error ) {
           dashDebug( error );
        }        
@@ -599,11 +599,11 @@ function dashSetVote( dashId, vote ) {
  * @param - The ID of the player you would like to send this request too.
  * @param - The message object that you would like to use to provide to the playlist.
  */
-function dashSetUserVote( dashId, vote ) {
+function dashSetUserVote( dashId, voteTag, voteValue ) {
    var dashObj = getDashObject( dashId );
    if( dashObj ) {
        try {         
-          dashObj.setUserVote( vote );
+          dashObj.setUserVote( {tag:voteTag, value:voteValue} );
        } catch( error ) {
           dashDebug( error );
        }        
