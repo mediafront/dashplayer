@@ -232,7 +232,6 @@ package com.tmtdigital.dash.display.media
       public function playFile( checkLoaded:Boolean = true )
       {
          if (media) {
-            autostart = true;
             if (checkLoaded && ! media.loaded) {
                loadMediaFile( loadedFile );
             }
@@ -638,23 +637,18 @@ package com.tmtdigital.dash.display.media
        * Triggered when the media is ready to play...
        */
       protected function onMediaReady():void
-      {
-         if (! media.playing) {
-            if ( autostart && (Params.flashVars.delay == 0) ) {
-               playFile();
-            }
-            else {
-               if( autostart && (Params.flashVars.delay > 0) ) {
-                  delayTimer.start();
-                  setMediaState( MediaState.PLAYING, true );
-               }
-               else {
-                  setMediaState( MediaState.STOPPED );
-               }
-            }
-         }
+      {			
+         if( !autostart ) {
+            autostart = true;
+			pauseFile();
+			setMediaState( MediaState.STOPPED );
+		 }
+		 else if( Params.flashVars.delay > 0 ){
+			pauseFile();
+			delayTimer.start();
+		 }
 
-         onMetaData();
+		 onMetaData();
          Gateway.setControlVolume( currentVolume, noControls );
          setVolume( currentVolume );
       }
