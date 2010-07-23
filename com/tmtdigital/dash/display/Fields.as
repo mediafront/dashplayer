@@ -143,7 +143,11 @@ package com.tmtdigital.dash.display
             media.initialize();
             loadMedia();
             loadPreview();
-            media.playNext();
+            var loadedMedia:* = media.playNext();
+			if( loadedMedia ) {
+				loadedMedia.removeEventListener( DashEvent.MEDIA_UPDATE, onMediaUpdate );
+				loadedMedia.addEventListener( DashEvent.MEDIA_UPDATE, onMediaUpdate );					
+			}
          }
       }
 
@@ -174,8 +178,6 @@ package com.tmtdigital.dash.display
       private function loadMedia()
       {
          if( files.hasMedia ) {
-            media.removeEventListener( DashEvent.MEDIA_UPDATE, onMediaUpdate );
-            media.addEventListener( DashEvent.MEDIA_UPDATE, onMediaUpdate );
             media.addMediaToQueue( files.getFile( "intro" ) );
             media.addMediaToQueue( files.getFile( "commercial" ) );
             media.addMediaToQueue( files.getFile( "prereel" ) );
